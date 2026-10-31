@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vælg træning | REMA 1000 PLU</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f4;
+            color: #202820;
+        }
+
+        header {
+            background: #075e36;
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            margin-bottom: 0;
+            color: #e0f0e5;
+        }
+
+        main {
+            max-width: 700px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .intro h2 {
+            margin-bottom: 8px;
+        }
+
+        .intro p {
+            color: #59645c;
+        }
+
+        .category {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 14px;
+            box-shadow: 0 3px 14px #0000000a;
+        }
+
+        .category h3 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        .category p {
+            color: #59645c;
+            margin: 0 0 15px;
+            font-size: 14px;
+        }
+
+        .difficulty-options {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        button {
+            background: #075e36;
+            color: white;
+            border: 2px solid #075e36;
+            padding: 12px 10px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background: #064729;
+            border-color: #064729;
+            transform: translateY(-1px);
+        }
+
+        .category-button {
+            width: 100%;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .category-button span {
+            font-size: 20px;
+        }
+
+        .halloween {
+            border: 1px solid #e6b566;
+        }
+
+        .limited {
+            color: #975400;
+            background: #fff0d5;
+            padding: 5px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #075e36;
+            margin: 10px 0 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        #selection-message {
+            display: none;
+            background: white;
+            padding: 16px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #075e36;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 480px) {
+            main {
+                margin-top: 25px;
+            }
+
+            .category {
+                padding: 16px;
+            }
+
+            .difficulty-options {
+                gap: 6px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 12px 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>REMA 1000 PLU</h1>
+        <p>Vælg din træning</p>
+    </header>
+
+    <main>
+        <div class="intro">
+            <h2>Hvad vil du træne?</h2>
+            <p>Vælg en kategori for at komme i gang.</p>
+        </div>
+
+        <section class="category">
+            <h3>📚 Generel</h3>
+            <p>Vælg det sværhedsniveau, der passer dig.</p>
+
+            <div class="difficulty-options">
+    <button type="button" data-category="general" data-difficulty="easy">
+        Let
+    </button>
+
+    <button type="button" data-category="general" data-difficulty="medium">
+        Mellem
+    </button>
+
+    <button type="button" data-category="general" data-difficulty="hard">
+        Svært
+    </button>
+</div> 
+        </section>
+
+        <section class="category">
+            <button class="category-button" type="button" data-category="bageri">
+                <span>🥐 Bageri</span>
+                <span aria-hidden="true">→</span>
+            </button>
+        </section>
+
+        <section class="category">
+            <button class="category-button" type="button" data-category="grontsager">
+                <span>🥦 Grøntsager</span>
+                <span aria-hidden="true">→</span>
+            </button>
+        </section>
+
+        <section class="category">
+            <button class="category-button" type="button" data-category="frugt">
+                <span>🍎 Frugt</span>
+                <span aria-hidden="true">→</span>
+            </button>
+        </section>
+
+        <section class="category">
+            <button class="category-button" type="button" data-category="okologi">
+                <span>🌱 Økologi</span>
+                <span aria-hidden="true">→</span>
+            </button>
+        </section>
+
+        <section class="category">
+            <button class="category-button" type="button" data-category="other">
+                <span>🧺 Andet</span>
+                <span aria-hidden="true">→</span>
+            </button>
+        </section>
+
+        <section class="category halloween">
+            <button class="category-button" type="button" data-category="halloween">
+                <span>🎃 Halloween</span>
+                <span class="limited">LIMITED TID</span>
+            </button>
+        </section>
+
+        <div id="selection-message" role="status" aria-live="polite"></div>
+
+        <a class="back-link" href="index.html">← Tilbage til forsiden</a>
+    </main>
+
+    <script>
+        const selectionMessage = document.getElementById("selection-message");
+
+        document.querySelectorAll("[data-category]").forEach(function (button) {
+            button.addEventListener("click", function () {
+                const category = button.dataset.category;
+                const difficulty = button.dataset.difficulty || "all";
+
+                sessionStorage.setItem("pluCategory", category);
+                sessionStorage.setItem("pluDifficulty", difficulty);
+
+                window.location.href = "game.html";
+                return;
+
+                const categoryNames = {
+                    general: "Generel",
+                    bageri: "Bageri",
+                    grontsager: "Grøntsager",
+                    frugt: "Frugt",
+                    okologi: "Økologi",
+                    other: "Andet",
+                    halloween: "Halloween"
+                };
+
+                const difficultyNames = {
+                    easy: "Easy",
+                    medium: "Medium",
+                    hard: "Svært",
+                    all: "Alle produkter i kategorien"
+                };
+
+                selectionMessage.style.display = "block";
+                selectionMessage.textContent =
+                    "Du har valgt " + categoryNames[category] +
+                    " — " + difficultyNames[difficulty] +
+                    ". Dit valg er gemt. Quizzen kobler vi på i næste trin.";
+            });
+        });
+    </script>
+</body>
+</html>
